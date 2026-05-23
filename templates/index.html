@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Derivative of Interpolating Polynomial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [["\\(", "\\)"], ["$", "$"]]
+            }
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand-area">
+                <div class="brand-logo">∂</div>
+
+                <div class="brand-text">
+                    <strong>Derivative Calculator</strong>
+                    <span>Interpolating Polynomial</span>
+                </div>
+            </div>
+
+            <div class="menu-area">
+                <button class="nav-btn active" data-page="home">Home</button>
+                <button class="nav-btn" data-page="method">Method</button>
+                <button class="nav-btn" data-page="examples">Examples</button>
+                <button class="nav-btn" id="calc-button" data-page="calculator">Calculator</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page">
+
+        <!-- HOME -->
+        <section id="home" class="page-section active-section">
+            <div class="hero-card">
+                <p class="badge">Numerical Methods Online Calculator</p>
+
+                <h1>Derivative of Interpolating Polynomial</h1>
+
+                <p>
+                    This Flask web application calculates the derivative of an interpolating
+                    polynomial using given x and y data points. It includes a mathematical method
+                    discussion, two worked examples, and an interactive calculator.
+                </p>
+
+                <div class="home-menu">
+                    <button class="feature-card nav-btn active" data-page="home">
+                        <span>01</span>
+                        <h3>Home</h3>
+                        <p>Project overview and architecture.</p>
+                    </button>
+
+                    <button class="feature-card nav-btn" data-page="method">
+                        <span>02</span>
+                        <h3>Method</h3>
+                        <p>Mathematical discussion and formulas.</p>
+                    </button>
+
+                    <button class="feature-card nav-btn" data-page="examples">
+                        <span>03</span>
+                        <h3>Examples</h3>
+                        <p>Two step-by-step worked examples.</p>
+                    </button>
+
+                    <button class="feature-card nav-btn" data-page="calculator">
+                        <span>04</span>
+                        <h3>Calculator</h3>
+                        <p>Interactive derivative calculator.</p>
+                    </button>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h2>Project Architecture Overview</h2>
+
+                <div class="info-grid">
+                    <div>
+                        <strong>Backend</strong>
+                        <p>Flask handles routes, input validation, and polynomial calculation.</p>
+                    </div>
+
+                    <div>
+                        <strong>Frontend</strong>
+                        <p>HTML and CSS provide a responsive mathematical interface.</p>
+                    </div>
+
+                    <div>
+                        <strong>Formula Rendering</strong>
+                        <p>MathJax renders LaTeX formulas clearly in the browser.</p>
+                    </div>
+
+                    <div>
+                        <strong>Deployment</strong>
+                        <p>The project is prepared for deployment through Vercel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- METHOD -->
+        <section id="method" class="page-section">
+            <div class="content-card">
+                <h1>Derivative of Interpolating Polynomial</h1>
+
+                <p>
+                    The derivative of an interpolating polynomial is a numerical differentiation
+                    method. First, an interpolating polynomial \(P(x)\) is constructed from given
+                    data points. After the polynomial is formed, it is differentiated to estimate
+                    the derivative at a selected value of \(x\).
+                </p>
+
+                <h2>Formula</h2>
+
+                <div class="formula-box">
+                    \[
+                    P(x) = \sum_{i=0}^{n} y_i L_i(x)
+                    \]
+                </div>
+
+                <p>where:</p>
+
+                <div class="formula-box">
+                    \[
+                    L_i(x) =
+                    \prod_{\substack{j=0 \\ j \neq i}}^{n}
+                    \frac{x - x_j}{x_i - x_j}
+                    \]
+                </div>
+
+                <h2>Derivative</h2>
+
+                <p>
+                    Once the interpolating polynomial \(P(x)\) is obtained, the derivative is computed as:
+                </p>
+
+                <div class="formula-box">
+                    \[
+                    P'(x)
+                    \]
+                </div>
+
+                <h2>Procedure</h2>
+
+                <div class="step-grid">
+                    <div>
+                        <span>Step 1</span>
+                        <p>Enter the x-values and y-values.</p>
+                    </div>
+
+                    <div>
+                        <span>Step 2</span>
+                        <p>Construct the interpolating polynomial.</p>
+                    </div>
+
+                    <div>
+                        <span>Step 3</span>
+                        <p>Differentiate the polynomial.</p>
+                    </div>
+
+                    <div>
+                        <span>Step 4</span>
+                        <p>Evaluate the derivative at the chosen x-value.</p>
+                    </div>
+                </div>
+
+                <h2>When to Use It?</h2>
+
+                <ul>
+                    <li>When data points are given instead of an explicit function.</li>
+                    <li>When estimating derivatives from tabulated values.</li>
+                    <li>When the x-values are unique and interpolation is possible.</li>
+                    <li>When a polynomial approximation is acceptable for the given data.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EXAMPLES -->
+        <section id="examples" class="page-section">
+            <div class="page-title">
+                <p class="badge">Worked Examples</p>
+                <h1>Step-by-Step Solutions</h1>
+            </div>
+
+            <div class="examples-grid">
+                <div class="content-card">
+                    <h2>Worked Example 1</h2>
+
+                    <p>Given points:</p>
+
+                    <div class="formula-box">
+                        \[
+                        (1,1),\ (2,4),\ (3,9)
+                        \]
+                    </div>
+
+                    <p>These points come from:</p>
+
+                    <div class="formula-box">
+                        \[
+                        f(x)=x^2
+                        \]
+                    </div>
+
+                    <p>Therefore, the interpolating polynomial is:</p>
+
+                    <div class="formula-box">
+                        \[
+                        P(x)=x^2
+                        \]
+                    </div>
+
+                    <p>Differentiate:</p>
+
+                    <div class="formula-box">
+                        \[
+                        P'(x)=2x
+                        \]
+                    </div>
+
+                    <p>Evaluate at \(x=2\):</p>
+
+                    <div class="formula-box">
+                        \[
+                        P'(2)=2(2)=4
+                        \]
+                    </div>
+
+                    <div class="answer-box">Final Answer: 4</div>
+                </div>
+
+                <div class="content-card">
+                    <h2>Worked Example 2</h2>
+
+                    <p>Given points:</p>
+
+                    <div class="formula-box">
+                        \[
+                        (0,1),\ (1,3),\ (2,7)
+                        \]
+                    </div>
+
+                    <p>Assume:</p>
+
+                    <div class="formula-box">
+                        \[
+                        P(x)=ax^2+bx+c
+                        \]
+                    </div>
+
+                    <p>Using \((0,1)\):</p>
+
+                    <div class="formula-box">
+                        \[
+                        1=a(0)^2+b(0)+c
+                        \]
+                        \[
+                        c=1
+                        \]
+                    </div>
+
+                    <p>Using \((1,3)\):</p>
+
+                    <div class="formula-box">
+                        \[
+                        3=a(1)^2+b(1)+1
+                        \]
+                        \[
+                        a+b=2
+                        \]
+                    </div>
+
+                    <p>Using \((2,7)\):</p>
+
+                    <div class="formula-box">
+                        \[
+                        7=a(2)^2+b(2)+1
+                        \]
+                        \[
+                        4a+2b+1=7
+                        \]
+                        \[
+                        2a+b=3
+                        \]
+                    </div>
+
+                    <p>Solving:</p>
+
+                    <div class="formula-box">
+                        \[
+                        a+b=2
+                        \]
+                        \[
+                        2a+b=3
+                        \]
+                        \[
+                        a=1,\quad b=1,\quad c=1
+                        \]
+                    </div>
+
+                    <p>So:</p>
+
+                    <div class="formula-box">
+                        \[
+                        P(x)=x^2+x+1
+                        \]
+                    </div>
+
+                    <p>Differentiate:</p>
+
+                    <div class="formula-box">
+                        \[
+                        P'(x)=2x+1
+                        \]
+                    </div>
+
+                    <p>Evaluate at \(x=1\):</p>
+
+                    <div class="formula-box">
+                        \[
+                        P'(1)=2(1)+1=3
+                        \]
+                    </div>
+
+                    <div class="answer-box">Final Answer: 3</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULATOR -->
+        <section id="calculator" class="page-section">
+            <div class="content-card">
+                <h1>Interactive Calculator</h1>
+
+                <p>
+                    Enter the x-values, y-values, and the x-value where the derivative should be evaluated.
+                </p>
+
+                <form method="POST" class="calculator-form" autocomplete="off" onsubmit="saveCalculatorValues()">
+                    <label>
+                        X Values
+                        <input
+                            id="xval"
+                            type="text"
+                            name="x_values"
+                            value="{{ form_data.x_values }}"
+                            placeholder="Enter x-values, e.g. 1, 2, 3, 4, 5"
+                            autocomplete="off"
+                            required
+                        >
+                        <small class="input-guide">Separate each x-value with a comma.</small>
+                    </label>
+
+                    <label>
+                        Y Values
+                        <input
+                            id="yval"
+                            type="text"
+                            name="y_values"
+                            value="{{ form_data.y_values }}"
+                            placeholder="Enter y-values, e.g. 1, 4, 9, 16, 25"
+                            autocomplete="off"
+                            required
+                        >
+                        <small class="input-guide">The number of y-values must match the number of x-values.</small>
+                    </label>
+
+                    <label>
+                        Evaluate derivative at x
+                        <input
+                            id="eval"
+                            type="text"
+                            name="evaluate_x"
+                            value="{{ form_data.evaluate_x }}"
+                            placeholder="Enter value of x, e.g. 2"
+                            autocomplete="off"
+                            required
+                        >
+                        <small class="input-guide">This is where the derivative value will be evaluated.</small>
+                    </label>
+
+                    <button type="submit">Calculate Derivative</button>
+                </form>
+
+                {% if error %}
+                    <div class="error-box">{{ error }}</div>
+                {% endif %}
+
+                {% if result %}
+                    <div class="result-box">
+                        <h2>Result</h2>
+
+                        <h3>Given Points</h3>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>x</th>
+                                    <th>y</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for row in table_rows %}
+                                    <tr>
+                                        <td>{{ row.x }}</td>
+                                        <td>{{ row.y }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <h3>Interpolating Polynomial</h3>
+
+                        <div class="formula-box">
+                            \[
+                            P(x) = {{ polynomial_latex }}
+                            \]
+                        </div>
+
+                        <h3>Derivative Polynomial</h3>
+
+                        <div class="formula-box">
+                            \[
+                            P'(x) = {{ derivative_latex }}
+                            \]
+                        </div>
+
+                        <div class="final-answer">
+                            Derivative Value = {{ result }}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="content-card">
+                <h2>Safe Input Parsing</h2>
+
+                <p>
+                    This calculator only accepts comma-separated numeric values. The program converts
+                    input using float conversion, checks that the number of x-values and y-values are
+                    equal, and rejects duplicate x-values.
+                </p>
+
+                <h2>Errors and Challenges</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Challenge</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Invalid input</td>
+                            <td>Validate values using float conversion.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Unequal data length</td>
+                            <td>Check x-values and y-values count.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Duplicate x-values</td>
+                            <td>Reject repeated x-values.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Readable output</td>
+                            <td>Format polynomial as LaTeX.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const navButtons = document.querySelectorAll(".nav-btn");
+        const sections = document.querySelectorAll(".page-section");
+        const calculatorInputs = document.querySelectorAll(".calculator-form input");
+
+        function openPage(pageId, shouldSave = true) {
+            sections.forEach(section => {
+                section.classList.remove("active-section");
+            });
+
+            navButtons.forEach(button => {
+                button.classList.remove("active");
+            });
+
+            const selectedSection = document.getElementById(pageId);
+
+            if (selectedSection) {
+                selectedSection.classList.add("active-section");
+            }
+
+            document.querySelectorAll(`[data-page="${pageId}"]`).forEach(button => {
+                button.classList.add("active");
+            });
+
+            if (shouldSave) {
+                if (pageId === "calculator") {
+                    localStorage.setItem("activePage", "calculator");
+                } else {
+                    localStorage.setItem("activePage", "home");
+                }
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function hideOldResult() {
+            const resultBox = document.querySelector(".result-box");
+            const errorBox = document.querySelector(".error-box");
+
+            if (resultBox) {
+                resultBox.style.display = "none";
+            }
+
+            if (errorBox) {
+                errorBox.style.display = "none";
+            }
+        }
+
+        function getCalculatorValues() {
+            return {
+                xval: document.getElementById("xval").value,
+                yval: document.getElementById("yval").value,
+                eval: document.getElementById("eval").value
+            };
+        }
+
+        function hasAnyCalculatorValue(values) {
+            return (
+                values.xval.trim() !== "" ||
+                values.yval.trim() !== "" ||
+                values.eval.trim() !== ""
+            );
+        }
+
+        function saveCalculatorValues() {
+            const values = getCalculatorValues();
+
+            if (hasAnyCalculatorValue(values)) {
+                localStorage.setItem("items", JSON.stringify(values));
+            } else {
+                localStorage.removeItem("items");
+            }
+        }
+
+        function restoreCalculatorValues() {
+            const savedItems = localStorage.getItem("items");
+
+            if (!savedItems) {
+                return;
+            }
+
+            try {
+                const items = JSON.parse(savedItems);
+
+                document.getElementById("xval").value = items.xval || "";
+                document.getElementById("yval").value = items.yval || "";
+                document.getElementById("eval").value = items.eval || "";
+            } catch (error) {
+                localStorage.removeItem("items");
+            }
+        }
+
+        navButtons.forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                openPage(this.dataset.page);
+            });
+        });
+
+        calculatorInputs.forEach(input => {
+            input.addEventListener("input", function () {
+                hideOldResult();
+                saveCalculatorValues();
+            });
+        });
+
+        restoreCalculatorValues();
+
+        const hasResultOrError = "{{ 'true' if result or error else 'false' }}";
+        const savedPage = localStorage.getItem("activePage");
+
+        if (hasResultOrError === "true") {
+            openPage("calculator", true);
+        } else if (savedPage === "calculator") {
+            openPage("calculator", false);
+        } else {
+            openPage("home", false);
+        }
+    </script>
+</body>
+</html>
