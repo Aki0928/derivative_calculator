@@ -48,34 +48,35 @@
                 <h1>Derivative of Interpolating Polynomial</h1>
 
                 <p>
-                    This Flask web application calculates the derivative of an interpolating
-                    polynomial using given x and y data points. It includes a mathematical method
-                    discussion, worked examples, and an interactive calculator with full solution.
+                    This web application focuses on the derivative of an interpolating polynomial.
+                    It allows users to enter data points, construct an interpolation polynomial,
+                    differentiate the polynomial, and evaluate the derivative at a chosen value of \(x\).
+                    The system includes the method discussion, worked examples, and an interactive calculator.
                 </p>
 
                 <div class="home-menu">
                     <button class="feature-card nav-btn active" data-page="home">
                         <span>01</span>
                         <h3>Home</h3>
-                        <p>Project overview and architecture.</p>
+                        <p>Overview of the derivative of interpolating polynomial project.</p>
                     </button>
 
                     <button class="feature-card nav-btn" data-page="method">
                         <span>02</span>
                         <h3>Method</h3>
-                        <p>Mathematical discussion and formulas.</p>
+                        <p>Mathematical discussion, interpolation formula, and derivative process.</p>
                     </button>
 
                     <button class="feature-card nav-btn" data-page="examples">
                         <span>03</span>
                         <h3>Examples</h3>
-                        <p>Hard step-by-step worked examples.</p>
+                        <p>Step-by-step examples showing interpolation, differentiation, and evaluation.</p>
                     </button>
 
                     <button class="feature-card nav-btn" data-page="calculator">
                         <span>04</span>
                         <h3>Calculator</h3>
-                        <p>Interactive derivative calculator.</p>
+                        <p>Input data points and compute the derivative of the interpolating polynomial.</p>
                     </button>
                 </div>
             </div>
@@ -83,25 +84,31 @@
             <div class="content-card">
                 <h2>Project Architecture Overview</h2>
 
+                <p>
+                    The application follows a simple web architecture. The frontend receives the data points,
+                    the Flask backend safely processes the numerical input, constructs the interpolating
+                    polynomial, differentiates it, and returns the derivative result.
+                </p>
+
                 <div class="info-grid">
                     <div>
                         <strong>Backend</strong>
-                        <p>Flask handles routes, input validation, and polynomial calculation.</p>
+                        <p>Flask handles input validation, interpolation, differentiation, and result calculation.</p>
                     </div>
 
                     <div>
                         <strong>Frontend</strong>
-                        <p>HTML and CSS provide a responsive mathematical interface.</p>
+                        <p>HTML, CSS, and JavaScript provide the user interface and calculator form.</p>
                     </div>
 
                     <div>
                         <strong>Formula Rendering</strong>
-                        <p>MathJax renders LaTeX formulas clearly in the browser.</p>
+                        <p>MathJax renders interpolation and derivative formulas using LaTeX notation.</p>
                     </div>
 
                     <div>
                         <strong>Deployment</strong>
-                        <p>The project is prepared for deployment through Vercel.</p>
+                        <p>Vercel is used to deploy the calculator online.</p>
                     </div>
                 </div>
             </div>
@@ -113,10 +120,17 @@
                 <h1>Derivative of Interpolating Polynomial</h1>
 
                 <p>
-                    The derivative of an interpolating polynomial is a numerical differentiation
-                    method. First, an interpolating polynomial \(P(x)\) is constructed from given
-                    data points. After the polynomial is formed, it is differentiated to estimate
-                    the derivative at a selected value of \(x\).
+                    The derivative of an interpolating polynomial is used when the exact function is
+                    not given, but a set of data points is available. Instead of differentiating the
+                    original function directly, an interpolation polynomial \(P(x)\) is first formed
+                    using the given points. After that, the derivative \(P'(x)\) is computed to
+                    estimate the rate of change at a selected value of \(x\).
+                </p>
+
+                <p>
+                    This method is useful in numerical methods because many real-world problems only
+                    provide tabulated data. By using interpolation, the data can be represented by a
+                    polynomial, and the derivative of that polynomial can be used for approximation.
                 </p>
 
                 <h2>Lagrange Interpolation Formula</h2>
@@ -127,7 +141,7 @@
                     \]
                 </div>
 
-                <p>where:</p>
+                <p>where the basis polynomial is:</p>
 
                 <div class="formula-box">
                     \[
@@ -137,7 +151,7 @@
                     \]
                 </div>
 
-                <h2>Derivative</h2>
+                <h2>Derivative of the Polynomial</h2>
 
                 <p>
                     Once the interpolating polynomial \(P(x)\) is obtained, the derivative is computed as:
@@ -149,27 +163,32 @@
                     \]
                 </div>
 
+                <p>
+                    The value of \(P'(x)\) represents the approximate rate of change of the data at
+                    the selected value of \(x\).
+                </p>
+
                 <h2>Procedure</h2>
 
                 <div class="step-grid">
                     <div>
                         <span>Step 1</span>
-                        <p>Enter the x-values and y-values.</p>
+                        <p>Enter the x-values and y-values of the data points.</p>
                     </div>
 
                     <div>
                         <span>Step 2</span>
-                        <p>Construct the interpolating polynomial.</p>
+                        <p>Construct the interpolating polynomial \(P(x)\).</p>
                     </div>
 
                     <div>
                         <span>Step 3</span>
-                        <p>Differentiate the polynomial.</p>
+                        <p>Differentiate the polynomial to get \(P'(x)\).</p>
                     </div>
 
                     <div>
                         <span>Step 4</span>
-                        <p>Evaluate the derivative at the chosen x-value.</p>
+                        <p>Evaluate \(P'(x)\) at the chosen value of \(x\).</p>
                     </div>
                 </div>
 
@@ -184,312 +203,282 @@
             </div>
         </section>
 
-<!-- EXAMPLES -->
-<section id="examples" class="page-section">
-    <div class="page-title">
-        <p class="badge">Worked Examples</p>
-        <h1>Step-by-Step Solutions</h1>
-    </div>
+        <!-- EXAMPLES -->
+        <section id="examples" class="page-section">
+            <div class="page-title">
+                <p class="badge">Worked Examples</p>
+                <h1>Step-by-Step Solutions</h1>
 
-    <div class="examples-grid">
-        <!-- EXAMPLE 1 -->
-        <div class="content-card">
-            <h2>Example 1: Lagrange Cubic Interpolation</h2>
-
-            <p>
-                Find the derivative of the interpolating polynomial at \(x = 2\)
-                using the points:
-            </p>
-
-            <div class="formula-box">
-                \[
-                (0,1),\ (1,1),\ (2,3),\ (3,13)
-                \]
+                <p>
+                    The following examples show how to construct an interpolating polynomial from
+                    given data points, differentiate the polynomial, and evaluate the derivative
+                    at a specific value of \(x\).
+                </p>
             </div>
 
-            <h3>Step 1: Use the Lagrange interpolation formula</h3>
+            <div class="examples-grid">
+                <!-- EXAMPLE 1 -->
+                <div class="content-card">
+                    <h2>Example 1: Lagrange Cubic Interpolation</h2>
 
-            <div class="formula-box">
-                \[
-                P(x)=y_0L_0(x)+y_1L_1(x)+y_2L_2(x)+y_3L_3(x)
-                \]
+                    <p>
+                        Find the derivative of the interpolating polynomial at \(x = 2\)
+                        using the points:
+                    </p>
+
+                    <div class="formula-box">
+                        \[
+                        (0,1),\ (1,1),\ (2,3),\ (3,13)
+                        \]
+                    </div>
+
+                    <h3>Step 1: Use the Lagrange interpolation formula</h3>
+
+                    <div class="formula-box">
+                        \[
+                        P(x)=y_0L_0(x)+y_1L_1(x)+y_2L_2(x)+y_3L_3(x)
+                        \]
+                    </div>
+
+                    <h3>Step 2: Find the basis polynomials</h3>
+
+                    <div class="formula-box">
+                        \[
+                        L_0(x)=
+                        \frac{(x-1)(x-2)(x-3)}
+                        {(0-1)(0-2)(0-3)}
+                        =
+                        \frac{(x-1)(x-2)(x-3)}{-6}
+                        \]
+                    </div>
+
+                    <div class="formula-box">
+                        \[
+                        L_1(x)=
+                        \frac{x(x-2)(x-3)}
+                        {(1-0)(1-2)(1-3)}
+                        =
+                        \frac{x(x-2)(x-3)}{2}
+                        \]
+                    </div>
+
+                    <div class="formula-box">
+                        \[
+                        L_2(x)=
+                        \frac{x(x-1)(x-3)}
+                        {(2-0)(2-1)(2-3)}
+                        =
+                        \frac{x(x-1)(x-3)}{-2}
+                        \]
+                    </div>
+
+                    <div class="formula-box">
+                        \[
+                        L_3(x)=
+                        \frac{x(x-1)(x-2)}
+                        {(3-0)(3-1)(3-2)}
+                        =
+                        \frac{x(x-1)(x-2)}{6}
+                        \]
+                    </div>
+
+                    <h3>Step 3: Substitute the y-values</h3>
+
+                    <div class="formula-box">
+                        \[
+                        P(x)=1L_0(x)+1L_1(x)+3L_2(x)+13L_3(x)
+                        \]
+                    </div>
+
+                    <h3>Step 4: Substitute the basis polynomials</h3>
+
+                    <div class="formula-box">
+                        \[
+                        P(x)=
+                        1\left[\frac{(x-1)(x-2)(x-3)}{-6}\right]
+                        +
+                        1\left[\frac{x(x-2)(x-3)}{2}\right]
+                        \]
+                        \[
+                        +
+                        3\left[\frac{x(x-1)(x-3)}{-2}\right]
+                        +
+                        13\left[\frac{x(x-1)(x-2)}{6}\right]
+                        \]
+                    </div>
+
+                    <h3>Step 5: Simplify the polynomial</h3>
+
+                    <div class="formula-box">
+                        \[
+                        P(x)=x^3-2x^2+x+1
+                        \]
+                    </div>
+
+                    <h3>Step 6: Differentiate</h3>
+
+                    <div class="formula-box">
+                        \[
+                        P'(x)=3x^2-4x+1
+                        \]
+                    </div>
+
+                    <h3>Step 7: Evaluate at \(x=2\)</h3>
+
+                    <div class="formula-box">
+                        \[
+                        P'(2)=3(2)^2-4(2)+1
+                        \]
+                        \[
+                        P'(2)=3(4)-8+1
+                        \]
+                        \[
+                        P'(2)=12-8+1
+                        \]
+                        \[
+                        P'(2)=5
+                        \]
+                    </div>
+
+                    <div class="answer-box">
+                        Final Answer: \(P'(2)=5\)
+                    </div>
+                </div>
+
+                <!-- EXAMPLE 2 -->
+                <div class="content-card">
+                    <h2>Example 2: Newton Interpolation Divided Difference</h2>
+
+                    <p>
+                        Given the following data points, find the derivative of the interpolation
+                        polynomial at \(x=2\).
+                    </p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>x</th>
+                                <th>f(x)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Step 1: Given points</h3>
+
+                    <div class="formula-box">
+                        \[
+                        (x_0,y_0)=(1,2)
+                        \]
+                        \[
+                        (x_1,y_1)=(2,3)
+                        \]
+                        \[
+                        (x_2,y_2)=(4,7)
+                        \]
+                    </div>
+
+                    <h3>Step 2: First divided differences</h3>
+
+                    <div class="formula-box">
+                        \[
+                        f[x_0,x_1]=\frac{3-2}{2-1}=1
+                        \]
+                        \[
+                        f[x_1,x_2]=\frac{7-3}{4-2}=2
+                        \]
+                    </div>
+
+                    <h3>Step 3: Second divided difference</h3>
+
+                    <div class="formula-box">
+                        \[
+                        f[x_0,x_1,x_2]=
+                        \frac{f[x_1,x_2]-f[x_0,x_1]}{x_2-x_0}
+                        \]
+                        \[
+                        f[x_0,x_1,x_2]=\frac{2-1}{4-1}
+                        \]
+                        \[
+                        f[x_0,x_1,x_2]=\frac{1}{3}
+                        \]
+                    </div>
+
+                    <h3>Step 4: Newton interpolation polynomial</h3>
+
+                    <div class="formula-box">
+                        \[
+                        P(x)=
+                        f[x_0]
+                        +
+                        f[x_0,x_1](x-x_0)
+                        +
+                        f[x_0,x_1,x_2](x-x_0)(x-x_1)
+                        \]
+                        \[
+                        P(x)=2+1(x-1)+\frac{1}{3}(x-1)(x-2)
+                        \]
+                    </div>
+
+                    <h3>Step 5: Differentiate the polynomial</h3>
+
+                    <div class="formula-box">
+                        \[
+                        P'(x)=1+\frac{1}{3}\frac{d}{dx}[(x-1)(x-2)]
+                        \]
+                        \[
+                        (x-1)(x-2)=x^2-3x+2
+                        \]
+                        \[
+                        \frac{d}{dx}(x^2-3x+2)=2x-3
+                        \]
+                        \[
+                        P'(x)=1+\frac{1}{3}(2x-3)
+                        \]
+                    </div>
+
+                    <h3>Step 6: Evaluate at \(x=2\)</h3>
+
+                    <div class="formula-box">
+                        \[
+                        P'(2)=1+\frac{1}{3}(2(2)-3)
+                        \]
+                        \[
+                        P'(2)=1+\frac{1}{3}(4-3)
+                        \]
+                        \[
+                        P'(2)=1+\frac{1}{3}
+                        \]
+                        \[
+                        P'(2)=\frac{4}{3}
+                        \]
+                        \[
+                        P'(2)=1.3333
+                        \]
+                    </div>
+
+                    <div class="answer-box">
+                        Final Answer: \(P'(2)=1.3333\)
+                    </div>
+                </div>
             </div>
-
-            <h3>Step 2: Find the basis polynomials</h3>
-
-            <div class="formula-box">
-                \[
-                L_0(x)=
-                \frac{(x-1)(x-2)(x-3)}
-                {(0-1)(0-2)(0-3)}
-                =
-                \frac{(x-1)(x-2)(x-3)}{-6}
-                \]
-            </div>
-
-            <div class="formula-box">
-                \[
-                L_1(x)=
-                \frac{x(x-2)(x-3)}
-                {(1-0)(1-2)(1-3)}
-                =
-                \frac{x(x-2)(x-3)}{2}
-                \]
-            </div>
-
-            <div class="formula-box">
-                \[
-                L_2(x)=
-                \frac{x(x-1)(x-3)}
-                {(2-0)(2-1)(2-3)}
-                =
-                \frac{x(x-1)(x-3)}{-2}
-                \]
-            </div>
-
-            <div class="formula-box">
-                \[
-                L_3(x)=
-                \frac{x(x-1)(x-2)}
-                {(3-0)(3-1)(3-2)}
-                =
-                \frac{x(x-1)(x-2)}{6}
-                \]
-            </div>
-
-            <h3>Step 3: Substitute the y-values</h3>
-
-            <div class="formula-box">
-                \[
-                P(x)=1L_0(x)+1L_1(x)+3L_2(x)+13L_3(x)
-                \]
-            </div>
-
-            <h3>Step 4: Substitute the basis polynomials</h3>
-
-            <div class="formula-box">
-                \[
-                P(x)=
-                1\left[\frac{(x-1)(x-2)(x-3)}{-6}\right]
-                +
-                1\left[\frac{x(x-2)(x-3)}{2}\right]
-                \]
-                \[
-                +
-                3\left[\frac{x(x-1)(x-3)}{-2}\right]
-                +
-                13\left[\frac{x(x-1)(x-2)}{6}\right]
-                \]
-            </div>
-
-            <h3>Step 5: Simplify the polynomial</h3>
-
-            <div class="formula-box">
-                \[
-                P(x)=x^3-2x^2+x+1
-                \]
-            </div>
-
-            <h3>Step 6: Differentiate</h3>
-
-            <div class="formula-box">
-                \[
-                P'(x)=3x^2-4x+1
-                \]
-            </div>
-
-            <h3>Step 7: Evaluate at \(x=2\)</h3>
-
-            <div class="formula-box">
-                \[
-                P'(2)=3(2)^2-4(2)+1
-                \]
-                \[
-                P'(2)=3(4)-8+1
-                \]
-                \[
-                P'(2)=12-8+1
-                \]
-                \[
-                P'(2)=5
-                \]
-            </div>
-
-            <div class="answer-box">
-                Final Answer: \(P'(2)=5\)
-            </div>
-        </div>
-
-        <!-- EXAMPLE 2 -->
-        <div class="content-card">
-            <h2>Example 2: Newton Interpolation Divided Difference</h2>
-
-            <p>Given the data points:</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>x</th>
-                        <th>f(x)</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>3</td>
-                    </tr>
-
-                    <tr>
-                        <td>4</td>
-                        <td>7</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p>
-                Find the derivative of the interpolation polynomial at:
-            </p>
-
-            <div class="formula-box">
-                \[
-                x = 2
-                \]
-            </div>
-
-            <h3>Step 1: Given points</h3>
-
-            <div class="formula-box">
-                \[
-                (x_0,y_0)=(1,2)
-                \]
-                \[
-                (x_1,y_1)=(2,3)
-                \]
-                \[
-                (x_2,y_2)=(4,7)
-                \]
-            </div>
-
-            <h3>Step 2: First divided differences</h3>
-
-            <div class="formula-box">
-                \[
-                f[x_0,x_1]=\frac{3-2}{2-1}
-                \]
-                \[
-                f[x_0,x_1]=1
-                \]
-            </div>
-
-            <div class="formula-box">
-                \[
-                f[x_1,x_2]=\frac{7-3}{4-2}
-                \]
-                \[
-                f[x_1,x_2]=2
-                \]
-            </div>
-
-            <h3>Step 3: Second divided difference</h3>
-
-            <div class="formula-box">
-                \[
-                f[x_0,x_1,x_2]=
-                \frac{f[x_1,x_2]-f[x_0,x_1]}{x_2-x_0}
-                \]
-                \[
-                f[x_0,x_1,x_2]=\frac{2-1}{4-1}
-                \]
-                \[
-                f[x_0,x_1,x_2]=\frac{1}{3}
-                \]
-            </div>
-
-            <h3>Step 4: Newton interpolation polynomial</h3>
-
-            <div class="formula-box">
-                \[
-                P(x)=
-                f[x_0]
-                +
-                f[x_0,x_1](x-x_0)
-                +
-                f[x_0,x_1,x_2](x-x_0)(x-x_1)
-                \]
-            </div>
-
-            <p>Substitute the values:</p>
-
-            <div class="formula-box">
-                \[
-                P(x)=2+1(x-1)+\frac{1}{3}(x-1)(x-2)
-                \]
-            </div>
-
-            <h3>Step 5: Differentiate the polynomial</h3>
-
-            <div class="formula-box">
-                \[
-                P'(x)=1+\frac{1}{3}\frac{d}{dx}[(x-1)(x-2)]
-                \]
-            </div>
-
-            <p>Expand first:</p>
-
-            <div class="formula-box">
-                \[
-                (x-1)(x-2)=x^2-3x+2
-                \]
-            </div>
-
-            <p>Differentiate:</p>
-
-            <div class="formula-box">
-                \[
-                \frac{d}{dx}(x^2-3x+2)=2x-3
-                \]
-            </div>
-
-            <p>So:</p>
-
-            <div class="formula-box">
-                \[
-                P'(x)=1+\frac{1}{3}(2x-3)
-                \]
-            </div>
-
-            <h3>Step 6: Evaluate at \(x=2\)</h3>
-
-            <div class="formula-box">
-                \[
-                P'(2)=1+\frac{1}{3}(2(2)-3)
-                \]
-                \[
-                P'(2)=1+\frac{1}{3}(4-3)
-                \]
-                \[
-                P'(2)=1+\frac{1}{3}
-                \]
-                \[
-                P'(2)=\frac{4}{3}
-                \]
-                \[
-                P'(2)=1.3333
-                \]
-            </div>
-
-            <div class="answer-box">
-                Final Answer: \(P'(2)=1.3333\)
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- CALCULATOR -->
         <section id="calculator" class="page-section">
@@ -497,7 +486,9 @@
                 <h1>Interactive Calculator</h1>
 
                 <p>
-                    Enter the x-values, y-values, and the x-value where the derivative should be evaluated.
+                    Enter the x-values and y-values of the data points. The calculator will form
+                    the interpolating polynomial, compute its derivative, and evaluate the derivative
+                    at the selected value of \(x\).
                 </p>
 
                 <form method="POST" class="calculator-form" autocomplete="off" onsubmit="saveCalculatorValues()">
@@ -512,7 +503,9 @@
                             autocomplete="off"
                             required
                         >
-                        <small class="input-guide">Separate each x-value with a comma.</small>
+                        <small class="input-guide">
+                            Enter the x-coordinates of the data points separated by commas.
+                        </small>
                     </label>
 
                     <label>
@@ -526,7 +519,9 @@
                             autocomplete="off"
                             required
                         >
-                        <small class="input-guide">The number of y-values must match the number of x-values.</small>
+                        <small class="input-guide">
+                            Enter the corresponding y-values or function values separated by commas.
+                        </small>
                     </label>
 
                     <label>
@@ -540,7 +535,9 @@
                             autocomplete="off"
                             required
                         >
-                        <small class="input-guide">This is where the derivative value will be evaluated.</small>
+                        <small class="input-guide">
+                            Enter the value of x where \(P'(x)\) should be evaluated.
+                        </small>
                     </label>
 
                     <button type="submit">Calculate Derivative</button>
@@ -618,9 +615,16 @@
                 <h2>Safe Input Parsing</h2>
 
                 <p>
-                    This calculator only accepts comma-separated numeric values. The program converts
-                    input using float conversion, checks that the number of x-values and y-values are
-                    equal, and rejects duplicate x-values.
+                    The calculator safely parses user input by accepting only comma-separated
+                    numerical values. The x-values and y-values are converted into numbers before
+                    they are used to construct the interpolating polynomial. The system checks that
+                    both lists have the same length and that the x-values are not duplicated, because
+                    duplicate x-values make interpolation invalid.
+                </p>
+
+                <p>
+                    The input is not executed as code. It is only converted into numerical data and
+                    processed through controlled interpolation, differentiation, and evaluation steps.
                 </p>
 
                 <h2>Errors and Challenges</h2>
@@ -635,23 +639,28 @@
 
                     <tbody>
                         <tr>
-                            <td>Invalid input</td>
-                            <td>Validate values using float conversion.</td>
+                            <td>Invalid numerical input</td>
+                            <td>The system checks if all x-values and y-values can be converted to numbers.</td>
                         </tr>
 
                         <tr>
-                            <td>Unequal data length</td>
-                            <td>Check x-values and y-values count.</td>
+                            <td>Unequal number of x and y values</td>
+                            <td>The calculator requires each x-value to have one corresponding y-value.</td>
                         </tr>
 
                         <tr>
                             <td>Duplicate x-values</td>
-                            <td>Reject repeated x-values.</td>
+                            <td>The system rejects repeated x-values because interpolation requires unique x-values.</td>
                         </tr>
 
                         <tr>
-                            <td>Readable output</td>
-                            <td>Format polynomial as LaTeX.</td>
+                            <td>Long interpolation formulas</td>
+                            <td>Formula boxes use scrolling so the mathematical expressions remain readable.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Showing the full solution</td>
+                            <td>The result section displays the polynomial, derivative, final value, and step-by-step solution.</td>
                         </tr>
                     </tbody>
                 </table>
