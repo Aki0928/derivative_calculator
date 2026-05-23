@@ -832,5 +832,268 @@ table {
     .formula-box {
         padding: 12px;
     }
+    /* ==================================================
+   FINAL RESPONSIVE FIX: MENU + EXAMPLES OVERLAP
+================================================== */
+
+/* Stop all cards from overflowing */
+.content-card,
+.hero-card,
+.result-box,
+.solution-box,
+.formula-box {
+    max-width: 100%;
+    min-width: 0;
 }
+
+/* Fix MathJax/formula overflow */
+.formula-box {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: normal;
+    -webkit-overflow-scrolling: touch;
+}
+
+.formula-box mjx-container,
+mjx-container {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+}
+
+/* Make long formulas readable */
+.formula-box mjx-container[display="true"] {
+    display: block !important;
+    text-align: left !important;
+}
+
+/* Fix table overflow */
+table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Fix desktop examples overlapping */
+.examples-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.examples-grid .content-card {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Make examples cleaner on desktop */
+@media (min-width: 951px) {
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #examples .content-card {
+        max-width: 100%;
+    }
+
+    #examples .formula-box {
+        font-size: 15px;
+    }
+}
+
+/* Tablet fix */
+@media (max-width: 950px) {
+    .page {
+        width: 100%;
+        padding: 22px 14px;
+    }
+
+    .home-menu,
+    .info-grid,
+    .step-grid,
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-card,
+    .hero-card {
+        padding: 24px;
+    }
+}
+
+/* Mobile menu must be vertical */
+@media (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .page {
+        width: 100%;
+        padding: 16px 10px;
+    }
+
+    .nav-container {
+        width: 100%;
+        height: auto;
+        padding: 18px 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .brand-area {
+        width: 100%;
+        margin-right: 0;
+        justify-content: flex-start;
+    }
+
+    .brand-logo {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        border-radius: 18px;
+        font-size: 30px;
+    }
+
+    .brand-text strong {
+        font-size: 18px;
+    }
+
+    .brand-text span {
+        font-size: 13px;
+    }
+
+    /* vertical menu */
+    .menu-area {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .menu-area .nav-btn {
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 14px 16px;
+        font-size: 16px;
+        border-radius: 18px;
+    }
+
+    .hero-card,
+    .content-card {
+        width: 100%;
+        padding: 20px;
+        border-radius: 22px;
+        overflow: hidden;
+    }
+
+    .hero-card::after {
+        display: none;
+    }
+
+    h1 {
+        font-size: 30px;
+        line-height: 1.15;
+    }
+
+    h2 {
+        font-size: 23px;
+        line-height: 1.25;
+    }
+
+    h3 {
+        font-size: 18px;
+        line-height: 1.35;
+    }
+
+    p,
+    li {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .formula-box {
+        padding: 14px;
+        border-radius: 18px;
+        font-size: 14px;
+    }
+
+    .formula-box::before {
+        display: none;
+    }
+
+    .answer-box,
+    .final-answer {
+        font-size: 17px;
+        padding: 14px;
+    }
+
+    input {
+        width: 100%;
+        font-size: 14px;
+        padding: 13px;
+    }
+
+    .calculator-form button {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .solution-box {
+        padding: 14px;
+    }
+
+    .solution-step {
+        padding: 14px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+    .page {
+        padding: 14px 8px;
+    }
+
+    .hero-card,
+    .content-card {
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .brand-logo {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        font-size: 26px;
+    }
+
+    .brand-text strong {
+        font-size: 16px;
+    }
+
+    .brand-text span {
+        font-size: 12px;
+    }
+
+    .menu-area .nav-btn {
+        font-size: 15px;
+        padding: 13px;
+    }
+
+    .formula-box {
+        padding: 12px;
+        font-size: 13px;
+    }
+}
+
 }
