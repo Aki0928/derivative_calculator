@@ -208,6 +208,17 @@ p {
     color: #cbd5e1;
 }
 
+ul,
+ol {
+    color: #cbd5e1;
+    padding-left: 22px;
+}
+
+li {
+    line-height: 1.75;
+    margin-bottom: 14px;
+}
+
 /* HOME CARDS */
 .home-menu {
     position: relative;
@@ -280,12 +291,7 @@ p {
     color: #38bdf8;
 }
 
-.content-card ul {
-    color: #cbd5e1;
-    line-height: 1.8;
-}
-
-/* INFO GRID */
+/* GRIDS */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -312,30 +318,6 @@ p {
     font-size: 14px;
 }
 
-/* FORMULA */
-.formula-box {
-    position: relative;
-    background:
-        linear-gradient(135deg, rgba(2, 6, 23, 0.95), rgba(15, 23, 42, 0.95));
-    color: #f8fafc;
-    padding: 18px;
-    border-radius: 18px;
-    overflow-x: auto;
-    margin: 16px 0;
-    border: 1px solid rgba(56, 189, 248, 0.26);
-    box-shadow: inset 0 0 30px rgba(56, 189, 248, 0.05);
-}
-
-.formula-box::before {
-    content: "ƒ(x)";
-    position: absolute;
-    top: 10px;
-    right: 14px;
-    color: rgba(56, 189, 248, 0.18);
-    font-weight: 900;
-}
-
-/* STEPS */
 .step-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -367,6 +349,29 @@ p {
     font-size: 14px;
 }
 
+/* FORMULA */
+.formula-box {
+    position: relative;
+    background:
+        linear-gradient(135deg, rgba(2, 6, 23, 0.95), rgba(15, 23, 42, 0.95));
+    color: #f8fafc;
+    padding: 18px;
+    border-radius: 18px;
+    overflow-x: auto;
+    margin: 16px 0;
+    border: 1px solid rgba(56, 189, 248, 0.26);
+    box-shadow: inset 0 0 30px rgba(56, 189, 248, 0.05);
+}
+
+.formula-box::before {
+    content: "ƒ(x)";
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    color: rgba(56, 189, 248, 0.18);
+    font-weight: 900;
+}
+
 /* EXAMPLES */
 .page-title {
     margin-bottom: 20px;
@@ -386,16 +391,6 @@ p {
     border-radius: 14px;
     text-align: center;
     margin-top: 18px;
-}
-
-ol {
-    color: #cbd5e1;
-    padding-left: 22px;
-}
-
-li {
-    line-height: 1.75;
-    margin-bottom: 14px;
 }
 
 /* CALCULATOR */
@@ -487,6 +482,47 @@ button {
     font-size: 24px;
     font-weight: 900;
     text-align: center;
+}
+
+/* FULL SOLUTION RESULT */
+.solution-box {
+    margin-top: 26px;
+    padding: 22px;
+    border-radius: 20px;
+    background: rgba(2, 6, 23, 0.55);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+}
+
+.solution-box h2 {
+    color: #38bdf8;
+    margin-bottom: 18px;
+}
+
+.solution-step {
+    padding: 18px;
+    margin-bottom: 16px;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.solution-step span {
+    display: inline-flex;
+    color: #020617;
+    background: #38bdf8;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.solution-step h3 {
+    color: #facc15;
+}
+
+.solution-content p {
+    color: #cbd5e1;
 }
 
 /* TABLE */
