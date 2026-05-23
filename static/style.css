@@ -606,4 +606,231 @@ td {
     h2 {
         font-size: 24px;
     }
+    /* ================================
+   MOBILE + OVERLAP FIX
+================================ */
+
+/* Prevent formulas, long equations, and tables from breaking layout */
+.content-card,
+.formula-box,
+.solution-box,
+.result-box,
+table {
+    max-width: 100%;
+}
+
+.formula-box {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: normal;
+}
+
+.formula-box mjx-container {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Fix wide MathJax formulas on mobile */
+mjx-container {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Make examples safer on smaller screens */
+.examples-grid {
+    align-items: start;
+}
+
+.examples-grid .content-card {
+    min-width: 0;
+}
+
+/* Better table scrolling on mobile */
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Tablet */
+@media (max-width: 950px) {
+    .page {
+        width: min(100% - 28px, 900px);
+    }
+
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid,
+    .step-grid,
+    .home-menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content-card {
+        min-width: 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .page {
+        width: 100%;
+        padding: 18px 12px;
+    }
+
+    .nav-container {
+        width: 100%;
+        height: auto;
+        padding: 12px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .brand-area {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .brand-logo {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        font-size: 24px;
+    }
+
+    .brand-text strong {
+        font-size: 15px;
+    }
+
+    .brand-text span {
+        font-size: 11px;
+    }
+
+    .menu-area {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .nav-btn {
+        width: 100%;
+        font-size: 13px;
+        padding: 10px 8px;
+        text-align: center;
+    }
+
+    .hero-card,
+    .content-card {
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .hero-card::after {
+        display: none;
+    }
+
+    h1 {
+        font-size: 30px;
+        line-height: 1.15;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    p,
+    li {
+        font-size: 14px;
+    }
+
+    .home-menu,
+    .info-grid,
+    .step-grid,
+    .examples-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .feature-card {
+        padding: 18px;
+    }
+
+    .formula-box {
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .formula-box::before {
+        display: none;
+    }
+
+    .answer-box,
+    .final-answer {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    input {
+        width: 100%;
+        font-size: 14px;
+        padding: 12px 13px;
+    }
+
+    .calculator-form button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .solution-box {
+        padding: 14px;
+    }
+
+    .solution-step {
+        padding: 14px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+    .page {
+        padding: 14px 10px;
+    }
+
+    .hero-card,
+    .content-card {
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .menu-area {
+        grid-template-columns: 1fr;
+    }
+
+    .formula-box {
+        padding: 12px;
+    }
+}
 }
